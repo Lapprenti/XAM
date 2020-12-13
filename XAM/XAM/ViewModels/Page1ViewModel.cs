@@ -22,7 +22,7 @@ namespace XAM.ViewModels
 
         public override void OnNavigatedTo(INavigationParameters parameters)
         {
-            var nom = parameters.GetValue<String>("nom");
+            var nom = parameters.GetValue<string>("nom");
             WelcomeMsg = $"Bienvenue {nom} !";
         }
     }

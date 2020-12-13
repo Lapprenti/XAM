@@ -6,9 +6,7 @@
 
     <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
         <Label Text="Bienvenue dans le POC Xamarin !" />
-
         <Entry Placeholder="Entrez votre nom" Text="{Binding Nom}"></Entry>
-
         <Button Command="{Binding GoToPage1}" Text="Passer à la page 1" />
     </StackLayout>
 
