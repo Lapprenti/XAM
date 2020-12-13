@@ -3,6 +3,6 @@
     public class Year
     {
         public int Season { get ; set ; }
-        public string WikiURL { get ; set ; }
+        public string Url { get ; set ; }
     }
 }
