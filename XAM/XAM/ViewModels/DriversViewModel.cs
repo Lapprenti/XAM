@@ -17,13 +17,13 @@ namespace XAM.ViewModels
         }
         public DriversViewModel(INavigationService navigationService): base(navigationService)
         {
-            Title = "Page 1";
+            Title = "Drivers Page";
         }
 
         public override void OnNavigatedTo(INavigationParameters parameters)
         {
-            var nom = parameters.GetValue<string>("nom");
-            WelcomeMsg = $"Bienvenue {nom} !";
+            var wishedSeason = parameters.GetValue<string>("year");
+            // TODO → Make api call and display a collection view of drivers
         }
     }
 }

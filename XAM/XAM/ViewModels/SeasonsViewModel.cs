@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 
 namespace XAM.ViewModels
 {
@@ -14,6 +15,8 @@ namespace XAM.ViewModels
     {
         public INavigationService _navigationService { get; set; }
         public DelegateCommand GoToDrivers { get; private set; }
+
+        private int _selectedYear { get; set; }
 
         private List<Year> _seasons;
         public List<Year> Seasons
@@ -32,20 +35,26 @@ namespace XAM.ViewModels
             _navigationService = navigationService;
             GoToDrivers = new DelegateCommand(GoToDriversMethod);
             _BLL = bLL;
+            this.GetAllSeasons();
         }
 
         async void GetAllSeasons()
         {
             Seasons = await _BLL.GetAllSeasons();
+            foreach (var s in Seasons)
+            {
+                Console.WriteLine(JsonSerializer.Serialize(s));
+            }
         }
 
         void GoToDriversMethod()
         {
+            _selectedYear = 2020;
             var navigationParams = new NavigationParameters
             {
-                { "nom", Nom }
+                { "year", _selectedYear }
             };
-            _navigationService.NavigateAsync("Page1", navigationParams);
+            _navigationService.NavigateAsync("DriversPage", navigationParams);
         }
     }
 }

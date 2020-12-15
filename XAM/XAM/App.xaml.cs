@@ -21,7 +21,7 @@ namespace XAM
         {
             InitializeComponent();
 
-            await NavigationService.NavigateAsync("NavigationPage/MainPage");
+            await NavigationService.NavigateAsync("NavigationPage/SeasonsPage");
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
