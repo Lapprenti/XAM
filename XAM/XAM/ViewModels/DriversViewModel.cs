@@ -7,7 +7,7 @@ using Prism.Navigation;
 
 namespace XAM.ViewModels
 {
-    public class Page1ViewModel : ViewModelBase, INavigationAware
+    public class DriversViewModel : ViewModelBase, INavigationAware
     {
         private string _welcomeMsg;
         public string WelcomeMsg
@@ -15,7 +15,7 @@ namespace XAM.ViewModels
             get { return _welcomeMsg; }
             set { SetProperty(ref _welcomeMsg, value); }
         }
-        public Page1ViewModel(INavigationService navigationService): base(navigationService)
+        public DriversViewModel(INavigationService navigationService): base(navigationService)
         {
             Title = "Page 1";
         }

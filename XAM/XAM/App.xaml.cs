@@ -1,3 +1,5 @@
+using Business;
+using Business.contracts;
 using Prism;
 using Prism.Ioc;
 using XAM.ViewModels;
@@ -25,10 +27,11 @@ namespace XAM
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
             containerRegistry.RegisterSingleton<IAppInfo, AppInfoImplementation>();
+            containerRegistry.Register<IBLL, BLL>();
 
             containerRegistry.RegisterForNavigation<NavigationPage>();
-            containerRegistry.RegisterForNavigation<MainPage, MainPageViewModel>();
-            containerRegistry.RegisterForNavigation<Page1, Page1ViewModel>();
+            containerRegistry.RegisterForNavigation<SeasonsPage, SeasonsViewModel>();
+            containerRegistry.RegisterForNavigation<DriversPage, DriversViewModel>();
         }
     }
 }

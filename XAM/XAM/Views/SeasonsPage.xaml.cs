@@ -1,9 +1,9 @@
 ﻿
 namespace XAM.Views
 {
-    public partial class MainPage
+    public partial class SeasonsPage
     {
-        public MainPage()
+        public SeasonsPage()
         {
             InitializeComponent();
         }
