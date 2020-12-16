@@ -4,10 +4,52 @@
              x:Class="XAM.Views.DriversPage"
              Title="{Binding Title}">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Test"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout Margin="20">
+            <CollectionView ItemsSource="{Binding Drivers}"
+                        EmptyView="No items to display" >
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Padding="10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="1" 
+                               Text="{Binding DriverId}" 
+                               FontAttributes="Bold" 
+                               HorizontalTextAlignment="Center"/>
+                            <Label Grid.Column="2" 
+                               Text="{Binding PermanentNumber}" 
+                               FontAttributes="Bold" 
+                               HorizontalTextAlignment="Center"/>
+                            <Label Grid.Column="3" 
+                               Text="{Binding Code}" 
+                               FontAttributes="Bold" 
+                               HorizontalTextAlignment="Center"/>
+                            <Label Grid.Column="4" 
+                               Text="{Binding GivenName}" 
+                               FontAttributes="Bold" 
+                               HorizontalTextAlignment="Center"/>
+                            <Label Grid.Column="5" 
+                               Text="{Binding FamilyName}" 
+                               FontAttributes="Bold" 
+                               HorizontalTextAlignment="Center"/>
+                            <Label Grid.Column="6" 
+                               Text="{Binding DateOfBirth}" 
+                               FontAttributes="Bold" 
+                               HorizontalTextAlignment="Center"/>
+                            <Label Grid.Column="7" 
+                               Text="{Binding Nationality}" 
+                               FontAttributes="Bold" 
+                               HorizontalTextAlignment="Center"/>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

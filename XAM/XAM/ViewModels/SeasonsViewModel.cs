@@ -16,7 +16,7 @@ namespace XAM.ViewModels
         public INavigationService _navigationService { get; set; }
         public DelegateCommand GoToDrivers { get; private set; }
 
-        private int _selectedYear { get; set; }
+        public Year SelectedYear { get; set; }
 
         private List<Year> _seasons;
         public List<Year> Seasons
@@ -26,8 +26,6 @@ namespace XAM.ViewModels
         }
 
         private IBLL _BLL { get; set; }
-
-        public string Nom { get; set; }
         public SeasonsViewModel(INavigationService navigationService, IBLL bLL)
             : base(navigationService)
         {
@@ -41,18 +39,14 @@ namespace XAM.ViewModels
         async void GetAllSeasons()
         {
             Seasons = await _BLL.GetAllSeasons();
-            foreach (var s in Seasons)
-            {
-                Console.WriteLine(JsonSerializer.Serialize(s));
-            }
         }
 
         void GoToDriversMethod()
         {
-            _selectedYear = 2020;
+            //SelectedYear = 2020;
             var navigationParams = new NavigationParameters
             {
-                { "year", _selectedYear }
+                { "year", SelectedYear.Season }
             };
             _navigationService.NavigateAsync("DriversPage", navigationParams);
         }

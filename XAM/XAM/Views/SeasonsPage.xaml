@@ -5,9 +5,35 @@
              Title="{Binding Title}">
 
     <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-        <Label Text="Bienvenue dans le POC Xamarin !" />
-        <Entry Placeholder="Entrez votre nom" Text=""></Entry>
+        <Label Text="Bienvenue dans le POC Xamarin ! Selectionnez une saison s'il vous plait" />
         <!--<Button Command="{Binding GoToPage1}" Text="Passer à la page 1" />-->
+        <StackLayout Margin="20">
+            <CollectionView ItemsSource="{Binding Seasons}"
+                        EmptyView="No items to display"
+                        SelectionMode="Single"
+                        SelectedItem="{Binding SelectedYear}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Padding="10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="1" 
+                               Text="{Binding Season}" 
+                               FontAttributes="Bold" 
+                               HorizontalTextAlignment="Center"/>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            <Button Command="{Binding GoToDrivers}" Text="Chercher les pilotes de la saison choisie" />
+            <Button Text="Voir les informations des cette saison" />
+        </StackLayout>
     </StackLayout>
 
 </ContentPage>
