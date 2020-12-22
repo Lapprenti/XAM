@@ -39,7 +39,7 @@ namespace XAM.ViewModels
             //    {
             //        Console.WriteLine(IsDark); 
             //    });
-            Console.WriteLine(IsDark);
+            Console.WriteLine(IsDark); // Ouput false but switch is true on parent page binded with two way to view model base property
         }
         public DriversViewModel(INavigationService navigationService): base(navigationService)
         {
