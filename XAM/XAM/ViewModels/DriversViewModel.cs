@@ -6,6 +6,7 @@ using Entities;
 using Prism.Commands;
 using Prism.Mvvm;
 using Prism.Navigation;
+using Xamarin.Forms;
 
 namespace XAM.ViewModels
 {
@@ -33,6 +34,11 @@ namespace XAM.ViewModels
         {
             Title = "Choose a season";
             _BLL = bLL;
+            //MessagingCenter.Subscribe<SeasonsViewModel, DriversViewModel>(this, "IsDark", // essai implementation messaging center
+            //    (ViewModelBase, IsDark) =>
+            //    {
+            //        Console.WriteLine(IsDark); 
+            //    });
             Console.WriteLine(IsDark);
         }
         public DriversViewModel(INavigationService navigationService): base(navigationService)

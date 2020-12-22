@@ -2,6 +2,8 @@ using Business;
 using Business.contracts;
 using Prism;
 using Prism.Ioc;
+using XAM.Contracts;
+using XAM.Services;
 using XAM.ViewModels;
 using XAM.Views;
 using Xamarin.Essentials.Implementation;
@@ -26,6 +28,7 @@ namespace XAM
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
+            //containerRegistry.RegisterSingleton<IDeviceService, DeviceService>();
             containerRegistry.RegisterSingleton<IAppInfo, AppInfoImplementation>();
             containerRegistry.Register<IBLL, BLL>();
 

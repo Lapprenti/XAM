@@ -2,7 +2,7 @@
 using Prism;
 using Prism.Ioc;
 using UIKit;
-
+using XAM.Contracts;
 
 namespace XAM.iOS
 {
@@ -33,6 +33,7 @@ namespace XAM.iOS
         public void RegisterTypes(IContainerRegistry containerRegistry)
         {
             // Register any platform specific implementations
+            containerRegistry.RegisterSingleton<IDeviceService, AppleDeviceService>();
         }
     }
 }

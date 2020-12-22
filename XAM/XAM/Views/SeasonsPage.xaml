@@ -9,8 +9,13 @@
     </ContentPage.Resources>-->
 
     <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" BackgroundColor="{Binding IsDark, Mode=OneWay, Converter={StaticResource BgColorAppThemeConverter}}">
-        <Label Text="Bienvenue dans le POC Xamarin ! Selectionnez une saison s'il vous plait" TextColor="{Binding IsDark, Mode=OneWay, Converter={StaticResource FontColorThemeConverter}}"/>
-        <Switch IsToggled="{Binding IsDark, Mode=TwoWay}"></Switch>
+        <Label 
+            Text="Bienvenue dans le POC Xamarin ! Selectionnez une saison s'il vous plait" 
+            TextColor="{Binding IsDark, Mode=OneWay, Converter={StaticResource FontColorThemeConverter}}"/>
+        <Label 
+            Text="{Binding Device}" 
+            TextColor="{Binding IsDark, Mode=OneWay, Converter={StaticResource FontColorThemeConverter}}"/>
+        <Switch IsToggled="{Binding IsDark, Mode=TwoWay}" />
         <!--<Button Command="{Binding GoToPage1}" Text="Passer à la page 1" />-->
         <StackLayout Margin="20">
             <CollectionView ItemsSource="{Binding Seasons}"
@@ -36,7 +41,7 @@
                 </CollectionView.ItemTemplate>
             </CollectionView>
             <Button 
-                Command="{Binding GoToDrivers}" 
+                Command="{Binding GoToDriverPageCommande}" 
                 Text="Chercher les pilotes de la saison choisie" 
                 TextColor="{Binding IsDark, Mode=OneWay, Converter={StaticResource FontColorThemeConverter}}"
                 BackgroundColor="{Binding IsDark, Mode=OneWay, Converter={StaticResource BgColorBtnThemeConverter}}"

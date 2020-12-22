@@ -3,6 +3,7 @@ using Android.Content.PM;
 using Android.OS;
 using Prism;
 using Prism.Ioc;
+using XAM.Contracts;
 
 namespace XAM.Droid
 {
@@ -34,6 +35,7 @@ namespace XAM.Droid
         public void RegisterTypes(IContainerRegistry containerRegistry)
         {
             // Register any platform specific implementations
+            containerRegistry.RegisterSingleton<IDeviceService, DroidDeviceService>();
         }
     }
 }
