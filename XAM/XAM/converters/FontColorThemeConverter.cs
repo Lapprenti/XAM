@@ -15,11 +15,11 @@ namespace XAM.converters
         {
             if ((bool)value == true)
             {
-                return this.DARK.FontColor;
+                return Color.FromHex(this.DARK.FontColor);
             }
             else
             {
-                return this.LIGHT.FontColor;
+                return Color.FromHex(this.LIGHT.FontColor);
             }
         }
 

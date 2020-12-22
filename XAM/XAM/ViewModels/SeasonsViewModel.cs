@@ -47,7 +47,7 @@ namespace XAM.ViewModels
         public SeasonsViewModel(INavigationService navigationService, IBLL bLL, IDeviceService deviceService)
             : base(navigationService)
         {
-            Title = "Choose a season";
+            Title = "Choisissez une année";
             _deviceService = deviceService;
             _navigationService = navigationService;
             //GoToDrivers = new DelegateCommand(GoToDriversMethod);
@@ -83,7 +83,8 @@ namespace XAM.ViewModels
             //SelectedYear = 2020;
             var navigationParams = new NavigationParameters
             {
-                { "year", SelectedYear.Season }
+                { "year", SelectedYear.Season },
+                { "isDark", IsDark }
             };
             try
             {

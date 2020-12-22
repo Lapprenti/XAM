@@ -8,6 +8,8 @@ namespace Business
 {
     public class BLL : IBLL
     {
+        public bool IsDark { get; set; }
+
         public ErgastAPI apiService { get; set; }
 
         public BLL()

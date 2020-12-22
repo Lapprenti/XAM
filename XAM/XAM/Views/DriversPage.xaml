@@ -2,49 +2,86 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="XAM.Views.DriversPage"
-             Title="{Binding Title}">
+             Title="{Binding Title}"
+             BackgroundColor="{Binding IsDark, Mode=OneWay, Converter={StaticResource BgColorAppThemeConverter}}">
+    <!--<ContentPage.Resources>
+        <Color x:Key="fontColor"  value="{Binding IsDark, Mode=OneWay, Converter={StaticResource BgColorAppThemeConverter}}"></Color>
+    </ContentPage.Resources>-->
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Label">
+                <Setter Property="TextColor" Value="{Binding IsDark, Mode=OneWay, Converter={StaticResource FontColorThemeConverter}}" />
+                <Setter Property="VerticalOptions" Value="Center" />
+            </Style>
+
+            <Style TargetType="Switch">
+                <Setter Property="VerticalOptions" Value="Center" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.Content>
-        <StackLayout Margin="20" BackgroundColor="{Binding IsDark, Mode=OneWay, Converter={StaticResource BgColorAppThemeConverter}}">
-            <CollectionView ItemsSource="{Binding Drivers}"
-                        EmptyView="No items to display" >
+        <StackLayout 
+            HorizontalOptions="CenterAndExpand" 
+            VerticalOptions="CenterAndExpand" Margin="5">
+            <CollectionView ItemsSource="{Binding Drivers}" HorizontalOptions="CenterAndExpand"
+                        EmptyView="Chargement ..." >
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <Grid Padding="10">
+                        <Grid Padding="1">
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto" />
                                 <RowDefinition Height="Auto" />
                             </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto" />
-                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="0*" />
+                                <ColumnDefinition Width="1*" />
+                                <ColumnDefinition Width="2*" />
+                                <ColumnDefinition Width="6*" />
+                                <ColumnDefinition Width="6*" />
+                                <ColumnDefinition Width="10*" />
+                                <ColumnDefinition Width="8*" />
+                                <ColumnDefinition Width="10*" />
                             </Grid.ColumnDefinitions>
-                            <Label Grid.Column="1" 
+                            <!--<Label Grid.Column="1" 
+                               TextColor="Wheat"
                                Text="{Binding DriverId}" 
                                FontAttributes="Bold" 
-                               HorizontalTextAlignment="Center"/>
+                               FontSize="Small"
+                               HorizontalTextAlignment="Center"/>-->
                             <Label Grid.Column="2" 
+                               TextColor="Wheat"
                                Text="{Binding PermanentNumber}" 
                                FontAttributes="Bold" 
+                               FontSize="Small"
                                HorizontalTextAlignment="Center"/>
                             <Label Grid.Column="3" 
+                               TextColor="Wheat"
                                Text="{Binding Code}" 
                                FontAttributes="Bold" 
+                               FontSize="Micro"
                                HorizontalTextAlignment="Center"/>
                             <Label Grid.Column="4" 
+                               TextColor="Wheat"
                                Text="{Binding GivenName}" 
                                FontAttributes="Bold" 
+                               FontSize="Micro"
                                HorizontalTextAlignment="Center"/>
                             <Label Grid.Column="5" 
+                               TextColor="Wheat"
                                Text="{Binding FamilyName}" 
                                FontAttributes="Bold" 
+                               FontSize="Micro"
                                HorizontalTextAlignment="Center"/>
                             <Label Grid.Column="6" 
+                               TextColor="Wheat"
                                Text="{Binding DateOfBirth}" 
                                FontAttributes="Bold" 
+                               FontSize="Micro"
                                HorizontalTextAlignment="Center"/>
                             <Label Grid.Column="7" 
+                               TextColor="Wheat"
                                Text="{Binding Nationality}" 
                                FontAttributes="Bold" 
+                               FontSize="Micro"
                                HorizontalTextAlignment="Center"/>
                         </Grid>
                     </DataTemplate>

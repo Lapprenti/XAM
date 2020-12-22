@@ -31,7 +31,7 @@ namespace XAM.ViewModels
         public ViewModelBase(INavigationService navigationService)
         {
             NavigationService = navigationService;
-            IsDark = true; // De nouveau instancié à chanque fois qu'un heritage est mis en place
+            //IsDark = true; // De nouveau instancié à chanque fois qu'un heritage est mis en place
         }
 
         public virtual void Initialize(INavigationParameters parameters)

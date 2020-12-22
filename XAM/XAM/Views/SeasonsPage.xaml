@@ -4,10 +4,6 @@
              x:Class="XAM.Views.SeasonsPage"
              Title="{Binding Title}">
 
-    <!--<ContentPage.Resources>
-        <local:ThemeConverter x:Key="ThemeConverter"></local:ThemeConverter>
-    </ContentPage.Resources>-->
-
     <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" BackgroundColor="{Binding IsDark, Mode=OneWay, Converter={StaticResource BgColorAppThemeConverter}}">
         <Label 
             Text="Bienvenue dans le POC Xamarin ! Selectionnez une saison s'il vous plait" 
@@ -46,11 +42,11 @@
                 TextColor="{Binding IsDark, Mode=OneWay, Converter={StaticResource FontColorThemeConverter}}"
                 BackgroundColor="{Binding IsDark, Mode=OneWay, Converter={StaticResource BgColorBtnThemeConverter}}"
                 />
-            <Button 
+            <!--<Button 
                 Text="Voir les informations de cette saison"
                 TextColor="{Binding IsDark, Mode=OneWay, Converter={StaticResource FontColorThemeConverter}}"
                 BackgroundColor="{Binding IsDark, Mode=OneWay, Converter={StaticResource BgColorBtnThemeConverter}}"
-                />
+                />-->
         </StackLayout>
     </StackLayout>
 

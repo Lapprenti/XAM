@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Business.contracts;
+﻿using Business.contracts;
 using Entities;
-using Prism.Commands;
-using Prism.Mvvm;
 using Prism.Navigation;
-using Xamarin.Forms;
+using System;
+using System.Collections.Generic;
 
 namespace XAM.ViewModels
 {
@@ -32,7 +28,7 @@ namespace XAM.ViewModels
 
         public DriversViewModel(INavigationService navigationService, IBLL bLL) : base(navigationService)
         {
-            Title = "Choose a season";
+            Title = "Liste des pilotes";
             _BLL = bLL;
             //MessagingCenter.Subscribe<SeasonsViewModel, DriversViewModel>(this, "IsDark", // essai implementation messaging center
             //    (ViewModelBase, IsDark) =>
@@ -48,6 +44,7 @@ namespace XAM.ViewModels
 
         public override void OnNavigatedTo(INavigationParameters parameters)
         {
+            IsDark = parameters.GetValue<bool>("isDark");
             int wishedSeason = int.Parse(parameters.GetValue<string>("year"));
             this.GetAllDriverForSpecificYear(wishedSeason);
         }
