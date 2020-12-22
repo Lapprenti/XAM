@@ -4,8 +4,13 @@
              x:Class="XAM.Views.SeasonsPage"
              Title="{Binding Title}">
 
-    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-        <Label Text="Bienvenue dans le POC Xamarin ! Selectionnez une saison s'il vous plait" />
+    <!--<ContentPage.Resources>
+        <local:ThemeConverter x:Key="ThemeConverter"></local:ThemeConverter>
+    </ContentPage.Resources>-->
+
+    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" BackgroundColor="{Binding IsDark, Mode=OneWay, Converter={StaticResource BgColorAppThemeConverter}}">
+        <Label Text="Bienvenue dans le POC Xamarin ! Selectionnez une saison s'il vous plait" TextColor="{Binding IsDark, Mode=OneWay, Converter={StaticResource FontColorThemeConverter}}"/>
+        <Switch IsToggled="{Binding IsDark, Mode=TwoWay}"></Switch>
         <!--<Button Command="{Binding GoToPage1}" Text="Passer à la page 1" />-->
         <StackLayout Margin="20">
             <CollectionView ItemsSource="{Binding Seasons}"
@@ -17,22 +22,30 @@
                         <Grid Padding="10">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="Auto" />
-                                <RowDefinition Height="Auto" />
                             </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="Auto" />
-                                <ColumnDefinition Width="Auto" />
                             </Grid.ColumnDefinitions>
-                            <Label Grid.Column="1" 
+                            <Label
                                Text="{Binding Season}" 
+                               TextColor="Wheat"
                                FontAttributes="Bold" 
                                HorizontalTextAlignment="Center"/>
                         </Grid>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
-            <Button Command="{Binding GoToDrivers}" Text="Chercher les pilotes de la saison choisie" />
-            <Button Text="Voir les informations des cette saison" />
+            <Button 
+                Command="{Binding GoToDrivers}" 
+                Text="Chercher les pilotes de la saison choisie" 
+                TextColor="{Binding IsDark, Mode=OneWay, Converter={StaticResource FontColorThemeConverter}}"
+                BackgroundColor="{Binding IsDark, Mode=OneWay, Converter={StaticResource BgColorBtnThemeConverter}}"
+                />
+            <Button 
+                Text="Voir les informations de cette saison"
+                TextColor="{Binding IsDark, Mode=OneWay, Converter={StaticResource FontColorThemeConverter}}"
+                BackgroundColor="{Binding IsDark, Mode=OneWay, Converter={StaticResource BgColorBtnThemeConverter}}"
+                />
         </StackLayout>
     </StackLayout>
 

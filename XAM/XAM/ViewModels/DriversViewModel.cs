@@ -33,6 +33,7 @@ namespace XAM.ViewModels
         {
             Title = "Choose a season";
             _BLL = bLL;
+            Console.WriteLine(IsDark);
         }
         public DriversViewModel(INavigationService navigationService): base(navigationService)
         {
@@ -42,8 +43,6 @@ namespace XAM.ViewModels
         public override void OnNavigatedTo(INavigationParameters parameters)
         {
             int wishedSeason = int.Parse(parameters.GetValue<string>("year"));
-            //Console.WriteLine(wishedSeason);
-            // TODO → Make api call and display a collection view of drivers
             this.GetAllDriverForSpecificYear(wishedSeason);
         }
 

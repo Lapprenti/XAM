@@ -4,7 +4,7 @@
              x:Class="XAM.Views.DriversPage"
              Title="{Binding Title}">
     <ContentPage.Content>
-        <StackLayout Margin="20">
+        <StackLayout Margin="20" BackgroundColor="{Binding IsDark, Mode=OneWay, Converter={StaticResource BgColorAppThemeConverter}}">
             <CollectionView ItemsSource="{Binding Drivers}"
                         EmptyView="No items to display" >
                 <CollectionView.ItemTemplate>

@@ -1,9 +1,11 @@
-﻿using Prism.Commands;
+﻿using Entities;
+using Prism.Commands;
 using Prism.Mvvm;
 using Prism.Navigation;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using XAM.converters;
 
 namespace XAM.ViewModels
 {
@@ -18,9 +20,18 @@ namespace XAM.ViewModels
             set { SetProperty(ref _title, value); }
         }
 
+        private bool _isDark;
+
+        public bool IsDark
+        {
+            get { return _isDark; }
+            set { SetProperty(ref _isDark, value); }
+        }
+
         public ViewModelBase(INavigationService navigationService)
         {
             NavigationService = navigationService;
+            IsDark = false;
         }
 
         public virtual void Initialize(INavigationParameters parameters)

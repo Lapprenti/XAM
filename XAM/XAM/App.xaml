@@ -2,10 +2,13 @@
 <prism:PrismApplication xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:prism="http://prismlibrary.com"
+             xmlns:local="clr-namespace:XAM.converters"
              x:Class="XAM.App">
-  <Application.Resources>
+    <Application.Resources>
 
-    <!-- Application resource dictionary -->
-
-  </Application.Resources>
+        <!-- Application resource dictionary -->
+        <local:BgColorAppThemeConverter x:Key="BgColorAppThemeConverter"></local:BgColorAppThemeConverter>
+        <local:BgColorBtnThemeConverter x:Key="BgColorBtnThemeConverter"></local:BgColorBtnThemeConverter>
+        <local:FontColorThemeConverter x:Key="FontColorThemeConverter"></local:FontColorThemeConverter>
+    </Application.Resources>
 </prism:PrismApplication>

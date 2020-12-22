@@ -13,9 +13,10 @@ namespace XAM.ViewModels
 {
     public class SeasonsViewModel : ViewModelBase
     {
+        private IBLL _BLL { get; set; }
         public INavigationService _navigationService { get; set; }
         public DelegateCommand GoToDrivers { get; private set; }
-
+        
         public Year SelectedYear { get; set; }
 
         private List<Year> _seasons;
@@ -25,7 +26,6 @@ namespace XAM.ViewModels
             set { SetProperty(ref _seasons, value); }
         }
 
-        private IBLL _BLL { get; set; }
         public SeasonsViewModel(INavigationService navigationService, IBLL bLL)
             : base(navigationService)
         {
